@@ -1,0 +1,29 @@
+Normally when you use a function, you put in a variable and get a value back. For example, the square function. Put in 5, get 25. Put in x, get x2.
+Generally, the function expects the input to be of a certain type, such as an integer or a String. You're probably familiar with variables in another language, like ints and doubles and Strings. In functional programming, functions also have a type. The square function has a type of int -> int. In other words, it accepts an integer and returns an integer. This allows you to pass functions as parameters of other functions.
+Where does lambda calculus fit in? Functional programming is based off of lambda calculus, but lambdas (lambda = a function) can only have a single input. But wait, that's not very useful! What if you want to add two numbers together? Lambda calculus works around this through a process called currying.
+For a function named Add(x, y) that takes two numbers and returns their sum, you would probably think it just adds them together and returns that. In lambda calculus, you can't do that, so what happens is the Add function actually only takes the first parameter and creates a function. This new function is then given the second parameter, and the result of that function is the sum.
+It's a bit hard to grasp at first, so I'll break it down.
+First, we call the Add function. Lets add 3 and 4. In lambda calculus, it would be written as Add(3, 4).
+Second, the Add function processes the first parameter, 3. Parameters are processed from left to right. Add doesn't know or care what the second parameter is - it's only job is to create a function that adds 3 to the parameter. Because functions have a type, they can be passed to and returned from functions. The Add function returns a new function we can refer to as Add3, because it takes a number and adds 3 to it. In functional programming, it is called an anonymous function, because it doesn't have a label to refer to it. It just gets passed around by other functions.
+Third, the Add3 function takes the next parameter, 4. It adds 3 to 4 to get 7 and returns it. It's job is done - you can't access Add3 anymore.
+You can actually give the Add3 function a name if you want. It depends on the language, but it would be something like Add3 = Add(3). Add doesn't care that there isn't a second parameter, it just returns the function it returned in step 2. You can now use Add3 as a function that takes one parameter and adds 3 to it.
+Functional programming is quite different from other programming paradigms, but it's quite powerful and is more deeply rooted in mathematics than the programming methodology used in Java, C++, and other imperative languages.
+
+
+
+
+
+Functional programming is a subtype of declarative programming. So you've really asked the question "what is functional/declarative programming versus imperative programming"?
+
+Imperative Programming is what most professional programmers use in their day-to-day jobs. It's the name given to languages like C, C++, Java, COBOL, etc. In imperative programming, you tell the computer what to do. "Computer, add x and y," or "Computer, slap a dialog box onto the screen." And (usually) the computer goes and does it. This is where most of us spend our lives, in looping structures and if-then-else statements and the like.
+
+Functional Programming, as far as I understand it, seeks to describe what you want done rather than specify how you want something done. It's probably best understood in contrast to imperative programming. For instance, if you have a list in C and you want to pull out every Nth element, you have to point at the first element, set a counter at one, move to the next element, increment the counter, check to see if you're at the Nth element and so on. The functional equivalent would be to write a function that recognizes when the size of a list is a multiple of N, and then pass that function to the list, possibly with another snippet of code to hand back the head of the list if your N-recognizer evaluates to true and discarding it if it evaluates to false. The two functions recurse through the list, and finally hand back a list consisting of every Nth element.
+
+The latter method might seem like the more confusing way to go about things, and that's because it is. Functional programming can be a mind-bender, which is one reason why Lisp, Scheme, and Haskell have never really surpassed C, C++, Java and COBOL in commercial popularity. But there are benefits to the functional way. For one, if you can get the logic correct, functional programming requires orders of magnitude less code than imperative programming. That means fewer points of failure, less code to test, and a more productive (and, many would say, happier) programming life. As systems get bigger, this has become more and more important.
+
+Are there more exotic types? Not yet. There are hybrids between the two of them (like Scala), but these merely seek to leverage the strengths of both types. Then there's Object-oriented programming, which is really just a new way to organize data in an imperative program. And even with strange new technologies like quantum computing, the (planned-for) underlying languages fall somewhere in the declarative/imperative spectrum.
+
+And, as others have pointed out, JQuery is a library that sits on top of JavaScript, which is itself a hybrid functional/imperative language. Without going into too much detail, JavaScript is like the ugly, buck-toothed girl your parents forced you to take to the prom. JQuery is like the fairy godmother who swoops in and, with one sweep of the wand, turns her into a total babe before your eyes. (See Douglas Crockford's JavaScript: the Good Parts to learn more.)
+
+
+

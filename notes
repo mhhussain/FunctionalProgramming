@@ -26,4 +26,38 @@ Are there more exotic types? Not yet. There are hybrids between the two of them 
 And, as others have pointed out, JQuery is a library that sits on top of JavaScript, which is itself a hybrid functional/imperative language. Without going into too much detail, JavaScript is like the ugly, buck-toothed girl your parents forced you to take to the prom. JQuery is like the fairy godmother who swoops in and, with one sweep of the wand, turns her into a total babe before your eyes. (See Douglas Crockford's JavaScript: the Good Parts to learn more.)
 
 
-
+-- Currying
+To first understand tail recursion, you must understand how recursion works inside a computer.
+When a function is called, all of the local variables of the caller are stored on a "call stack", where they are saved for when the function you called is finished running. That way, once your function finishes, the computer looks at the top of the call stack, loads the data from the function, and continues the function from when it left off.
+Let's look at a simple recursive function (In pseudocode):
+function factorial(n):
+    if n <= 1
+        return 1 //Because 0! and 1! = 1.
+    else
+        return n * factorial(n - 1)
+    endif
+end
+The first time factorial is called (Let's say, in this case, you call factorial(4)), the function you called it from is stored on the call stack, so the stack would look something like this (Assuming you called it from main() ):
+main() {data1 = 4, data2 = "Hello", data3 = 0.0}
+So now, the function runs through until factorial(3) gets called. Before control passes to the new function call, your call to factorial(4) gets stored on the top of the call stack, like this:
+factorial() {n = 4}
+main() {data1 = 4, data2 = "Hello", data3 = 0.0}
+So that way, when your recursion ends, the computer knows what progress you made through that call to factorial(), so it's kind of like saving on a video game.
+However, what if you BEAT the game already? If you have a recursive call as the very last line in your function, there is no point in saving your progress through the function as once you complete the function call, your function is done. Therefore, the call stack is unnecessary.
+The factorial function that I have above is an example of tail recursion. All your function does after factorial(n - 1) is called is return to its calling function. So, all you are really doing is repeating the entire function over and over until the terminating condition is reached.
+Sound familiar?
+while(/*Terminating condition*/)
+    //Repeat over and over...
+endwhile
+Tail recursion is basically a loop. This is significant because many compilers will automatically convert tail recursion into a loop when translating into machine code, which saves a significant amount of space, increases speed, and prevents stack overflow errors. And many functional programming languages require or strongly encourage tail recursion.
+That same factorial function could now be expressed as a loop:
+function factorial(n):
+    let result = 1
+    let current_number = n
+    while current_number > 1 //Your original base case
+        result = result * current_number
+        current_number--
+    endwhile
+    return result
+end
+TL;DR: Tail recursion is where your recursive case is the LAST thing called inside your function. Because it is the last thing called, your computer does not need to keep any information about the calling function, which saves time and space.

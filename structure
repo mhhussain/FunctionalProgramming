@@ -1,0 +1,31 @@
+
+*intro
+	- Hi everyone, today's topic is functional programming. I am going to cover what it is, how it works, and why it's important. It's a topic that I find super interesting so I have done the research and I hope you all can find this useful. Before I start, I do want to say, that I have done an extensive amount of research on this topic, and even still, my comfort level with this is still shaky at best. And so, by no means pull your punches, but if there's anything that I cannot answer, I promise that I will find out and let you know.
+	- So as a start, I sent out a survey to everyone just to see what everyone else knew.
+		- No one really knows much
+		- Most people missed it completely
+		- A few reasonable answers
+		- Nothing too solid as to what it is as a full paradigm
+	- Presentation will be more of a lecture
+	- Pay attention, will be throwing a lot of information at you
+	- No questions except on slides
+
+*why is functional programming hard?
+*broken up into a few key concepts
+	- Imperative vs declarative
+		- examples
+	- Mutable vs immutable
+	- Stateful vs stateless
+	- Concurrency
+
+*History
+	- lambda calculus
+		- examples
+*Imperative vs declarative
+*Mutable vs immutable
+	- Key reason (imo) that functional programming is difficult
+	- recursion
+*Stateful vs stateless
+	- student teacher example
+*Concurrency and parallellism
+	- no state, so parallel processing is easier

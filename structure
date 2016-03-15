@@ -29,3 +29,44 @@
 	- student teacher example
 *Concurrency and parallellism
 	- no state, so parallel processing is easier
+
+
+
+This is the most correct and most incorrect answer:
+In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. Just kidding... I thought it was something similar to procedural programming.
+
+	- Programming paradigm
+	- Avoids changing state
+	- No mutable data
+
+Brief history lesson
+	- 1932 - Alonzo Church and Stephen C. Kleene - Lambda Calculus
+	- They were studying the foundation of mathematics and they wanted to get to the roots of mathematics; they wanted to abstract it as far he logically could
+	- The construct that they abstracted down to was the 'function'
+	- A function is, according to Church and Kleene, the most basic mathematical construct
+		- f(x) = x + 10
+		- They wanted to use functions everywhere, so they created a notation to allow for that
+		- f(x) = x + 10 --> (λx.x + 10)
+			- This denotes a function that takes one parameter, x, and adds 10 to it
+			- (λx.x + 10) 32 = 32 + 10 = 42 -- Giving an argument is called an application
+		- (λop.λx.(op x x)) (+) 21 = + 21 21 = 42
+		- (λop.λx.(op x x)) (*) 21 = * 21 21 = 441
+	- Back in the 30s, it didn't exactly catch on, and it didn't fulfill it's original purpose, but once computers took over, it served as the theoretical basis and inspiration for functional programming
+
+Three points from before
+	- Programming paradigm
+	- Declarative
+	- Avoids changing data
+	- No mutable data
+
+What is functional programming
+	- Functional programming is a style of programming that emphasizes the evaluation of expressions, rather than execution of commands. The expressions in these languages are formed by using functions to combine basic values.
+
+Declarative vs imperative
+
+Mutability
+	- This is why it is hard
+
+State
+	- Concurrency
+

@@ -36,12 +36,13 @@ This is the most correct and most incorrect answer:
 In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. Just kidding... I thought it was something similar to procedural programming.
 
 	- Programming paradigm
+	- Evaluation of functions
 	- Avoids changing state
-	- No mutable data
+	- Avoids mutable data
 
 Brief history lesson
 	- 1932 - Alonzo Church and Stephen C. Kleene - Lambda Calculus
-	- They were studying the foundation of mathematics and they wanted to get to the roots of mathematics; they wanted to abstract it as far he logically could
+	- They were studying the foundation of mathematics and they wanted to get to the roots of mathematics; they wanted to abstract it as far they logically could
 	- The construct that they abstracted down to was the 'function'
 	- A function is, according to Church and Kleene, the most basic mathematical construct
 		- f(x) = x + 10
@@ -55,14 +56,83 @@ Brief history lesson
 
 Three points from before
 	- Programming paradigm
-	- Declarative
-	- Avoids changing data
-	- No mutable data
+	- Evaluation of functions
+	- Avoids changing state
+	- Avoids mutable data
 
 What is functional programming
+	- Not the opposite of OOP, it's the opposite of imperative programming.
+	- Functional programming is like explaining to a mathmetician how to solve a problem; imperative programming is telling an idiot what to do.
 	- Functional programming is a style of programming that emphasizes the evaluation of expressions, rather than execution of commands. The expressions in these languages are formed by using functions to combine basic values.
 
-Declarative vs imperative
+Execution of commands
+	- The program is expressed as a sequence of commands. Commands specify how to achieve the end result by creating objects and manipulating them.
+		- This is where the tie in to OOP comes from
+		- OOP is very typically imperative, but not naturally imperative.
+	- The approach uses objects that can be changed and the code describes how to change those objects.
+	- Example: We're making a cup of coffee. The cup of coffee is our object. We add cream and sugar to it, and thereby changed the object.
+		- class CupOfCoffee {
+			int cream;
+			int sugar
+		};
+		- var yay = new CupOfCoffee();
+		  yay.cream++;
+		  yay.sugar++;
+
+Evaluation of expressions
+	- The program code is an expression that specifies properties of the object we want to get as the result.
+	- We don't specify the steps necessary to construct the object and we can't accidentally use the object before it's created.
+	- Example: Same coffee example, let's say you want to add sugar:
+		- var yay = new CupOfCoffee();
+		  var nowWithSugar = yay.AddSugar(1);
+
+Questions?
+
+Functional programming is the execution of commands and the evaluation of expressions.
+
+Evaluation of functions
+Declarative vs Imperative
+	- Imperative programming is the execution of commands. The program consists of statements that specify how to change the state of the program. It is a step-by-step description of telling the computer how to accomplish it's overall task.
+	- In declarative programming style, we express the logic of the program without specifying the execution details
+	- Example: You have a list of customer and you want to pluck from that list all the customers who's age is greater than 65.
+		- Imperatively: start a loop, iterate through every customer, if the age is greater than 65, then add it to some temp list. Once the loop terminates, return the temp list.
+		- Declaratively: select customer where customer age is greater than 65
+		- Imperatively:
+			for(var i = 0; i < customers.Count(); i++)
+			{
+				if (customers[i].age > 65)
+				{
+					tempList.Add(customers[i]);
+				}
+			}
+			return tempList;
+		- Declaratively:
+			- SQL (assuming a customer table)
+				SELECT * FROM Customer WHERE Age > 65
+			- C# (LINQ)
+				from c in customers
+				where c.age > 65
+				select c
+			- C# (LINQ Extensions)
+				customers.Where(c => c.age > 65);
+			- Javascript (lodash or underscore)
+				_.filter(customers, function (c) {
+					return c.age >65
+				});
+			- C++ (C++ 11 - lambdas super clunky and awful)
+				filter(customers, [] (Customer c) { return c.age > 65 ;});
+			- Java
+				customers.stream().filter(c -> c.age > 65).collect(Collectors.toList());
+			- Python lambda
+				filter(lambda c: c.age > 65, customers)
+			- Python list comprehension
+				[c for customer in customers if customer.age > 65]
+			- F#
+				customers |> List.filter (fun (c) -> c.age > 65)
+	- The declarative example is much easier to read and decipher.
+
+Questions?
+
 
 Mutability
 	- This is why it is hard

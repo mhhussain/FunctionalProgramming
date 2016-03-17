@@ -88,17 +88,23 @@ Evaluation of expressions
 
 Questions?
 
-Functional programming is the execution of commands and the evaluation of expressions.
+Functional programming is the evaluation of expressions as opposed to the execution of commands.
 
 Evaluation of functions
 Declarative vs Imperative
 	- Imperative programming is the execution of commands. The program consists of statements that specify how to change the state of the program. It is a step-by-step description of telling the computer how to accomplish it's overall task.
 	- In declarative programming style, we express the logic of the program without specifying the execution details
-	- Example: You have a list of customer and you want to pluck from that list all the customers who's age is greater than 65.
+		- Here lies one of the difficulties
+		- This starts to get into the theory of computer science
+		- The logic of a program is separate from the details of execution
+		- These two things are usually conflated when they are taught to us, but they are distinctly separate concepts
+		- You can code a function multiple different ways
+		- You can see this in our tech assessment, q3
+	- Example: You have a list of customers and you want to pluck from that list all the customers who's age is greater than 65.
 		- Imperatively: start a loop, iterate through every customer, if the age is greater than 65, then add it to some temp list. Once the loop terminates, return the temp list.
-		- Declaratively: select customer where customer age is greater than 65
+		- Declaratively: filter from customers where customer age is greater than 65
 		- Imperatively:
-			for(var i = 0; i < customers.Count(); i++)
+			for (var i = 0; i < customers.Count(); i++)
 			{
 				if (customers[i].age > 65)
 				{
@@ -117,10 +123,10 @@ Declarative vs Imperative
 				customers.Where(c => c.age > 65);
 			- Javascript (lodash or underscore)
 				_.filter(customers, function (c) {
-					return c.age >65
+					return c.age > 65
 				});
 			- C++ (C++ 11 - lambdas super clunky and awful)
-				filter(customers, [] (Customer c) { return c.age > 65 ;});
+				filter(customers.begin(), customers.end(), [] (Customer c) { return c.age > 65; });
 			- Java
 				customers.stream().filter(c -> c.age > 65).collect(Collectors.toList());
 			- Python lambda
@@ -129,14 +135,100 @@ Declarative vs Imperative
 				[c for customer in customers if customer.age > 65]
 			- F#
 				customers |> List.filter (fun (c) -> c.age > 65)
+				- Treats functions as first class members (for example, data types are first class members of any language)
+				let over65(c) = c.age > 65
+				customers |> List.filter over65
 	- The declarative example is much easier to read and decipher.
+		- If I were to give you the imperative code, and the F# code, without even knowing F# you could probably still decipher what it is doing faster than the imperative code
+		- It is significantly easier to read
+
+Questions?
+
+Avoids mutable data
+Im/Mutability
+	- This is why it is hard
+	- In my opinion, the hardest part of writing functional programs
+	- Go back to the coffee example
+	- Immutable - once a value is set, it CANNOT be changed
+	- Strict vs non strict
+	- Variable vs value
+	- Why immutable?
+		- Significantly easier to predict what a program will do
+		- Your program becomes stateless
+		- Removes "void" functions who's only job is to alter program state
+		- You don't get side effects - locking and race conditions - readonly
+		- That's not to say you can be careless
+		- Function output is extremely predictable - they are dependent purely on input
+	- Example: sum up all number between two numbers (i.e. SumNumbers(5, 10) -> 45)
+		- Imperatively
+			int SumNumbers(int from, int to)
+			{
+				int retVal = 0;
+				for (var i = from; i <= to; i++)
+				{
+					retVal += i;
+				}
+				return retVal;
+			}
+			Notice how the value of retVal cannot be easily predicted at any time. It is constantly changing. But you obviously need a temporary variable to hold value and add more to it. How the hell would do it without?
+			This is exactly the difficulty in writing a program functionally. Loops are not common in functional programming. The result of conditionals wil never change
+		- Functionally - done recursively
+			int SumNumbers(int from, int to)
+			{
+				if (from > to) return 0;
+				int sumRest = SumNumbers(from + 1, to);
+				return from + sumRest;
+			}
+			This is valid because, while the value of sumRest is different depending on the activation frame, within the scope of the function and it's given parameters, the value is not being mutated.
 
 Questions?
 
 
-Mutability
-	- This is why it is hard
-
+Avoid changing state
 State
-	- Concurrency
+	- There really isn't much more to say here so I will provide a joke. A lymric of sorts.
+		STUDENT: Sir, can I ask a question?
+		TEACHER: Yes!
+		STUDENT: How do you put an elephant inside a fridge?
+		TEACHER: I don't know.
+		STUDENT: It's easy, you just open the fridge and put it in. I have another question!
+		TEACHER: Ok, ask.
+		STUDENT: How to put a donkey inside the fridge?
+		TEACHER: It's easy, you just open the fridge and put it in.
+		STUDENT: No sir, You just open the fridge take out the elephant and put it in.
+		TEACHER: Ooh...ok!!
+		STUDENT: Let me ask another one. If all the animals went to the lion's birthday party, and one animal went missing which one would it be?
+		TEACHER: The lion of course! Because it would eat all the animals.
+		STUDENT: No sir, it is the donkey, because it's still inside the fridge.
+		TEACHER: Are you kidding me?
+		STUDENT: No sir, one last question.
+		TEACHER: Ok!
+		STUDENT: If there's a river known to be full of crocodiles and you wanted to cross, how would you?
+		TEACHER: There's no way, I would need a boat to cross.
+		STUDENT: No sir, you just swim and cross it because all the animals went to the lion's birthday party.
+	- In a stateful system, it is difficult to predict the outcome of a program without adequately tracing the execution back.
+	- In most practice, we avoid state altogether
+	- Functional programs, by nature, tend to be very stateless, and thus make code easier to work with
+	- Concurrency and parallelism
+		- Functional languages are very condusive to parallel programming
+		- You still need to be careful
 
+Finale'
+	- Very basic introduction
+	- Progamming is hard, and functional programming is hard
+	- Functional programming is a paradigm
+		- Not simply a style (like declarative) or a framework/library
+	- All the things about it are not nuances of the paradigm, but rather the philosophy and actual science of it
+		- Just like imperative, and objects, and state, and mutability
+	- It's super important and interesting and gaining a lot of traction
+		- Most mainstream languages have either some built in features for functional style, or frameworks that allow it
+	- There's alot of functional languages:
+		- .NET: F#, Nemerle
+		- JVM: Scala, Clojure
+		- Erlang: Erlang, elixir
+		- Native: Haskell, OCaml
+
+Final note
+	- Functional programming is a different way of thinking. Where most programming languages and paradigms sprouted from mathematics, functional is and always will be very deeply rooted in it.
+
+Questions?

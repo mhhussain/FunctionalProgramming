@@ -46,6 +46,7 @@
 					<h2>Functional Programming</h2>
 					<p>by yours truly</p>
 				</section>
+
 				<section>
 					<section>
 						<h3>What we will be learning</h3>
@@ -105,6 +106,410 @@
 						</ol>
 					</section>
 				</section>
+
+				<section>
+					<section>
+						<h3>Brief history lesson</h3>
+						<ul id="fragments">
+							<li class="fragment">1932 - Alonzo Church and Stephen C. Kleene</li>
+							<li class="fragment">lambda calculus</li>
+						</ul>
+					</section>
+					<section>
+						<h3>much history</h3>
+						<div id="fragments">
+							<p class="fragment">church and kleene were studying the foundation of mathematics and wanted to get to its very roots. they wanted to abstract it out as far as they possibly could.</p>
+							<p class="fragment">they abstracted mathematics down to, what they believed was its most basic and fundamental construct, the <b>function</b></p>
+							<p class="fragment">they created a new notion for their math using the greek letter lambda (<b>λ</b>)</p>
+						</div>
+					</section>
+					<section>
+						<h3>Functions</h3>
+						<ul id="fragments">
+							<li class="fragment">
+								f(x) = x + 10 <span class="fragment">--> (λx.x + 10)</span>
+								<ul>
+									<li class="fragment">
+										this denotes a function that takes one parameter, x, and adds 10 to it
+									</li>
+									<li class="fragment">
+										<b>(λx.x + 10)</b> <i style="color: blue">32</i> = 32 + 10 = 42 -- giving an argument is called an application
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Functions</h3>
+						<ul id="fragments">
+							<li>
+								<b>(λop.λx.(op x x))</b> <span class="fragment"><i style="color: blue">(+) 21</i> = + 21 21 = 42</span>
+							</li>
+							<li class="fragment">
+								<b>(λop.λx.(op x x))</b> <span class="fragment"><i style="color: blue">(*) 21</i> = * 21 21 = 42</span>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>such history</h3>
+						<p>
+							Back in the 30s, it didn't exactly catch on, and it didn't fulfill its original purpose, but once computers took over, it served as the theoretical basis and inspiration for functional programming.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h3>Questions</h3>
+				</section>
+
+				<section>
+					<section>
+						<h3>Back to before</h3>
+						<ol>
+							<li>evaluation of functions</li>
+							<li>avoids mutable data</li>
+							<li>avoids changing state</li>
+							<li>programming paradigm</li>
+						</ol>
+					</section>
+					<section>
+						<h3>What is functional programming</h3>
+						<ul id="fragments">
+							<li class="fragment">not the opposite of oop, it's more the opposite of imperative programming</li>
+							<li class="fragment">functional programming is like explaining to a mathmetician how to solve a problem; imperative programming is telling an idiot what to do</li>
+							<li class="fragment">functional programming is a style of programming that emphasizes the <span class="fragment highlight-red">evaluation of expressions</span>, rather than the <span class="fragment highlight-red">executions of commands</span>. the expressions in these languages are formed by using functions to combine basic values</li>
+						</ul>
+					</section>
+					<section>
+						<div id="fragments">
+							<h3>Execution of commands</h3>
+							<ul class="fragment">
+								<li>the program is expressed as a sequence of commands. commands specify how to achieve the end result by creating objects and manipulating them</li>
+								<ul class="fragment">
+									<li>this is where the tie in to oop comes from</li>
+									<li>oop is very typically imperative, but not naturally imperative</li>
+								</ul>
+								<li class="fragment">the approach uses objects that can be changed and the code describes how to change those objects</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>Execution of commands</h3>
+						<p>Example: Ee're making a cup of coffee. The cup of coffee is our object. We add cream and sugar to it, and thereby change the object.</p>
+						<pre id="fragments" class="fragment">
+							<code class="hljs hljs csharp hljs hljs">
+class CupOfCoffee {
+  int cream;
+  int sugar
+};
+var yay = new CupOfCoffee();
+yay.cream++;
+yay.sugar++;
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Evaluation of expressions</h3>
+						<ul>
+							<li>The program code is an expression that specifies properties of the object we want to get as the result</li>
+							<li>We don't specify the steps necessary to construct the object and we can't accidentally use the object before it's created</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Evaluation of expressions</h3>
+						<p>Example: Same coffee example, let's say you want to add cream and sugar to it
+						<pre id="fragments" class="fragment">
+							<code class="hljs hljs csharp hljs hljs">
+var yay = new CupOfCoffee();
+var nowWithSugar = yay.AddSugar(1);
+var nowWithCreamAndSugar = nowWithSugar.AddCream(1);
+							</code>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>Questions?</h3>
+				</section>
+
+				<section>
+					<section>
+						<h3>Back to before</h3>
+						<ol>
+							<li>evaluation of functions</li>
+							<li>avoids mutable data</li>
+							<li>avoids changing state</li>
+							<li>programming paradigm</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Declarative vs imperative</h3>
+					</section>
+					<section>
+						<h3>Imperative programming</h3>
+						<p>Imperative programming is the execution of commands. The program consists of statements that specify how to change the state of the program. It is a step-by-step description of telling the computer how to accomplist it's overall task.</p>
+					</section>
+					<section>
+						<h3>Declarative programming</h3>
+						<p>In declarative programming style, we express the logic of the program without specifying the execution details.</p>
+
+						<aside class="notes">
+							This is where the difficulty lies. You can turn it over in your head as much as you want, but it won't make sense. This is where you would need to start unravel the theory of computer science that you have learned.
+							We are mostly taught that the logic of a program is tightly wound to the programs execution.
+						</aside>
+					</section>
+					<section>
+						<h3>Example</h3>
+						<p>You have a list of customer and you want to pluck from that list all of the customers who's age is greater than 65.</p>
+					</section>
+					<section>
+						<h3>Imperatively</h3>
+						<p>Initialize a loop, iterate through every customer, and if the age is greater than 65, then add that customer to some temp list. Once the loop terminates, return the temp list.</p>
+						<pre id="fragments" class="fragment">
+							<code class="hljs hljs csharp hljs hljs">
+for (var i = 0; i < customers.Count(); i++)
+{
+  if (customers[i].age > 65)
+  {
+    tempList.Add(customers[i]);
+  }
+}
+return tempList;
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Declaratively</h3>
+						<p>Filter from customers where customer age is greater than 65.</p>
+					</section>
+					<section>
+						<h3>SQL</h3>
+						<pre>
+							<code class="hljs hljs sql hljs hljs">
+SELECT * FROM Customer WHERE Age > 65
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>C# (LINQ)</h3>
+						<pre>
+							<code class="hljs hljs csharp hljs hljs">
+return (from c in customers
+where c.age > 65
+select c)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>C# (LINQ Extensions)</h3>
+						<pre>
+							<code class="hljs hljs cs hljs hljs">
+return customers.Where(c => c.age > 65);
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Javascript (underscore or lodash)</h3>
+						<pre>
+							<code class="hljs hljs javascript hljs hljs">
+return _.filter(customers, function (c) {
+  return c.age > 65
+});
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>C++ (11 - lambdas are super clunky and awful)</h3>
+						<pre>
+							<code class="hljs hljs cpp hljs hljs">
+filter(customers.begin(), customers.end(),
+  [] (Customer c) {
+    return c.age > 65;
+  }
+);
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Java</h3>
+						<pre>
+							<code class="hljs hljs java hljs hljs">
+return customers.stream()
+  .filter(c -> c.age > 65)
+  .collect(Collectors.toList());
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Python (Lambda)</h3>
+						<pre>
+							<code class="hljs hljs python hljs hljs">
+filter(lambda c: c.age > 65, customers)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Python (List comprehension)</h3>
+						<pre>
+							<code class="hljs hljs java hljs hljs">
+[c for customer in customers if customer.age > 65]
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>F#</h3>
+						<pre>
+							<code class="hljs hljs fs hljs hljs">
+customers |> List.filter (fun (c) -> c.age > 65)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>F#</h3>
+						<pre>
+							<code class="hljs hljs fs hljs hljs">
+let over65(c) = c.age > 65
+customers |> List.filter over65
+							</code>
+						</pre>
+					</section>
+					<section>
+						<pre>Imperative
+							<code class="hljs hljs csharp hljs hljs">
+for (var i = 0; i < customers.Count(); i++)
+{
+  if (customers[i].age > 65)
+  {
+    tempList.Add(customers[i]);
+  }
+}
+return tempList;
+							</code>
+						</pre>
+						<pre>Declarative
+							<code class="hljs hljs cs hljs hljs">
+customers |> List.filter (fun (c) -> c.age > 65)
+							</code>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>Questions?</h3>
+				</section>
+
+				<section>
+					<section>
+						<h3>Im/Mutability</h3>
+						<ul id="fragments">
+							<li class="fragment">This is why it's hard</li>
+							<li class="fragment">Coffee example</li>
+							<li class="fragment">Immutable - once the value is set, it <b>cannot</b> be changed</li>
+							<li class="fragment">Strict vs non-strict</li>
+							<li class="fragment">Variable vs value</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Why Immutability</h3>
+						<ul id="fragments">
+							<li class="fragment">Much easier to predict what a program will do</li>
+							<li class="fragment">Stateless-ness</li>
+							<li class="fragment">None, or less, side effects</li>
+							<li class="fragment">Function output is extremely predictable - functions are dependent purely on input</li>
+						</ul>
+					</section>
+					<section>
+						<p>Example: Sum up all number between two numbers (i.e. SumNumbers(5, 10) -> 45)</p>
+						<pre id="fragments" class="fragment">
+							<code class="hljs hljs csharp hljs hljs">
+int SumNumbers(int from, int to)
+{
+  int retVal = 0;
+  for (var i = from; i <= to; i++)
+  {
+    retVal += i;
+  }
+  return retVal;
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Example: Sum up all number between two numbers (i.e. SumNumbers(5, 10) -> 45)</p>
+						<pre id="fragments" class="fragment">
+							<code class="hljs hljs cs hljs hljs">
+int SumNumbers(int from, int to)
+{
+  return
+    (from > to)
+      ? 0
+      : { var sumRest = SumNumbers(from + 1, to);
+          from + sumRest; };
+}
+							</code>
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>Questions?</h3>
+				</section>
+
+				<section>
+					<section>
+						<h3>State</h3>
+						<ul id="fragments" class="fragment" style="font-size: large">
+							<li>STUDENT: Sir, can I ask a question?</li>
+							<li>TEACHER: Yes!</li>
+							<li>STUDENT: How do you put an elephant inside a fridge?</li>
+							<li>TEACHER: I don't know.</li>
+							<li>STUDENT: It's easy, you just open the fridge and put it in. I have another question!</li>
+							<li>TEACHER: Ok, ask.</li>
+							<li>STUDENT: How to put a donkey inside the fridge?</li>
+							<li>TEACHER: It's easy, you just open the fridge and put it in.</li>
+							<li>STUDENT: No sir, You just open the fridge take out the elephant and put it in.</li>
+							<li>TEACHER: Ooh...ok!!</li>
+							<li>STUDENT: Let me ask another one. If all the animals went to the lion's birthday party, and one animal went missing which one would it be?</li>
+							<li>TEACHER: The lion of course! Because it would eat all the animals.</li>
+							<li>STUDENT: No sir, it is the donkey, because it's still inside the fridge.</li>
+							<li>TEACHER: Are you kidding me?</li>
+							<li>STUDENT: No sir, one last question.</li>
+							<li>TEACHER: Ok!</li>
+							<li>STUDENT: If there's a river known to be full of crocodiles and you wanted to cross, how would you?</li>
+							<li>TEACHER: There's no way, I would need a boat to cross.</li>
+							<li>STUDENT: No sir, you just swim and cross it because all the animals went to the lion's birthday party.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Finale</h3>
+						<ul>
+							<li>Programming is hard</li>
+							<li>Functional programming is hard</li>
+							<li>It is a paradigm, not simply a style (like declarative) or a framework/library</li>
+							<li>It's important to know about and it has gained a lot of traction in the last decade or so</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>.NET: F#, Nemerle</li>
+							<li>JVM: Scala, Clojure</li>
+							<li>Erlang: Erlang, elixir</li>
+							<li>Native: Haskell, OCaml</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<p>Final note: Functional programming is a different way of thinking. Where most programming langauges and paradigms sprouted from mathematice, functional is and always will be very, very deeply rooted in it.</p>
+				</section>
+
+				<section>
+					<h3>Questions?</h3>
+				</section>
+
 
 				<!--<section>
 					<section id="fragments">

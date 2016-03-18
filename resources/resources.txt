@@ -1,1 +1,3 @@
 http://www.slideshare.net/OnorioCatenacci/why-you-should-be-learning-functional-programming-today
+http://frama-c.com/u3cat/download/CuoqICFP09.pdf
+http://stackoverflow.com/questions/4522304/does-functional-programming-take-up-more-memory

@@ -51,15 +51,15 @@
 					<section>
 						<h3>What we will be learning</h3>
 						<ol id="fragments">
-							<li class="fragment">what it is</li>
-							<li class="fragment">how it works</li>
-							<li class="fragment">why it's important</li>
+							<li class="fragment">What it is</li>
+							<li class="fragment">How it works</li>
+							<li class="fragment">Why it's important</li>
 						</ol>
 					</section>
 					<section>
 						<h3>Why am I presenting this</h3>
 						<ul id="fragments">
-							<li class="fragment">because i find it interesting</li>
+							<li class="fragment">Because I find it interesting</li>
 						</ul>
 					</section>
 					<section>
@@ -67,9 +67,9 @@
 							<div class="fragment">
 								<h3>Ground rules</h3>
 								<ul>
-									<li>pay attention</li>
-									<li>no questions</li>
-									<li>tell me slow down</li>
+									<li>Pay attention</li>
+									<li>No questions</li>
+									<li>Tell me slow down</li>
 								</ul>
 							</div>
 						</div>
@@ -90,19 +90,19 @@
 					<section>
 						<h3>Breakdown</h3>
 						<ul id="fragments">
-							<li><span class="fragment">4. </span>programming paradigm</li>
-							<li><span class="fragment">1. </span>evaluation of functions</li>
-							<li><span class="fragment">3. </span>avoids changing state</li>
-							<li><span class="fragment">2. </span>avoids mutable data</li>
+							<li><span class="fragment">4. </span>Programming paradigm</li>
+							<li><span class="fragment">1. </span>Evaluation of functions</li>
+							<li><span class="fragment">3. </span>Avoids changing state</li>
+							<li><span class="fragment">2. </span>Avoids mutable data</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Breakdown</h3>
 						<ol>
-							<li>evaluation of functions</li>
-							<li>avoids mutable data</li>
-							<li>avoids changing state</li>
-							<li>programming paradigm</li>
+							<li>Evaluation of functions</li>
+							<li>Avoids mutable data</li>
+							<li>Avoids changing state</li>
+							<li>Programming paradigm</li>
 						</ol>
 					</section>
 				</section>
@@ -112,15 +112,15 @@
 						<h3>Brief history lesson</h3>
 						<ul id="fragments">
 							<li class="fragment">1932 - Alonzo Church and Stephen C. Kleene</li>
-							<li class="fragment">lambda calculus</li>
+							<li class="fragment">Lambda calculus</li>
 						</ul>
 					</section>
 					<section>
 						<h3>much history</h3>
 						<div id="fragments">
-							<p class="fragment">church and kleene were studying the foundation of mathematics and wanted to get to its very roots. they wanted to abstract it out as far as they possibly could.</p>
-							<p class="fragment">they abstracted mathematics down to, what they believed was its most basic and fundamental construct, the <b>function</b></p>
-							<p class="fragment">they created a new notion for their math using the greek letter lambda (<b>λ</b>)</p>
+							<p class="fragment">Church and Kleene were studying the foundation of mathematics and wanted to get to its very roots. They wanted to abstract it out as far as they possibly could.</p>
+							<p class="fragment">They abstracted mathematics down to what they believed was its most basic and fundamental construct, the <b>function</b>.
+							<span class="fragment">They created a new notion for their math using the greek letter lambda (<b>λ</b>)</span></p>
 						</div>
 					</section>
 					<section>
@@ -130,7 +130,7 @@
 								f(x) = x + 10 <span class="fragment">--> (λx.x + 10)</span>
 								<ul>
 									<li class="fragment">
-										this denotes a function that takes one parameter, x, and adds 10 to it
+										This denotes a function that takes one parameter, x, and adds 10 to it
 									</li>
 									<li class="fragment">
 										<b>(λx.x + 10)</b> <i style="color: blue">32</i> = 32 + 10 = 42 -- giving an argument is called an application
@@ -153,7 +153,7 @@
 					<section>
 						<h3>such history</h3>
 						<p>
-							Back in the 30s, it didn't exactly catch on, and it didn't fulfill its original purpose, but once computers took over, it served as the theoretical basis and inspiration for functional programming.
+							Back in the 30s, it didn't exactly catch on because it didn't fulfill its original purpose, but once computers took over, it served as the theoretical basis and inspiration for functional programming.
 						</p>
 					</section>
 				</section>
@@ -166,36 +166,36 @@
 					<section>
 						<h3>Back to before</h3>
 						<ol>
-							<li>evaluation of functions</li>
-							<li>avoids mutable data</li>
-							<li>avoids changing state</li>
-							<li>programming paradigm</li>
+							<li>Evaluation of functions</li>
+							<li>Avoids mutable data</li>
+							<li>Avoids changing state</li>
+							<li>Programming paradigm</li>
 						</ol>
 					</section>
 					<section>
 						<h3>What is functional programming</h3>
 						<ul id="fragments">
-							<li class="fragment">not the opposite of oop, it's more the opposite of imperative programming</li>
-							<li class="fragment">functional programming is like explaining to a mathmetician how to solve a problem; imperative programming is telling an idiot what to do</li>
-							<li class="fragment">functional programming is a style of programming that emphasizes the <span class="fragment highlight-red">evaluation of expressions</span>, rather than the <span class="fragment highlight-red">executions of commands</span>. the expressions in these languages are formed by using functions to combine basic values</li>
+							<li class="fragment">Not the opposite of oop, it's more the opposite of imperative programming</li>
+							<li class="fragment">Functional programming is like explaining to a mathmetician how to solve a problem; imperative programming is telling an idiot what to do</li>
+							<li class="fragment">Functional programming is a style of programming that emphasizes the <span class="fragment highlight-red">evaluation of expressions</span>, rather than the <span class="fragment highlight-red">executions of commands</span>. The expressions in these languages are formed by using functions to combine basic values</li>
 						</ul>
 					</section>
 					<section>
 						<div id="fragments">
 							<h3>Execution of commands</h3>
 							<ul class="fragment">
-								<li>the program is expressed as a sequence of commands. commands specify how to achieve the end result by creating objects and manipulating them</li>
+								<li>The program is expressed as a sequence of commands. Commands specify how to achieve the end result by creating objects and manipulating them</li>
 								<ul class="fragment">
-									<li>this is where the tie in to oop comes from</li>
-									<li>oop is very typically imperative, but not naturally imperative</li>
+									<li>This is where the tie in to oop comes from</li>
+									<li>OOP is very typically imperative, but not naturally</li>
 								</ul>
-								<li class="fragment">the approach uses objects that can be changed and the code describes how to change those objects</li>
+								<li class="fragment">The approach uses objects that can be changed and the code describes how to change those objects</li>
 							</ul>
 						</div>
 					</section>
 					<section>
 						<h3>Execution of commands</h3>
-						<p>Example: Ee're making a cup of coffee. The cup of coffee is our object. We add cream and sugar to it, and thereby change the object.</p>
+						<p>Example: We're making a cup of coffee. The cup of coffee is our object. We add cream and sugar to it, and thereby change the object.</p>
 						<pre id="fragments" class="fragment">
 							<code class="hljs hljs csharp hljs hljs">
 class CupOfCoffee {

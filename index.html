@@ -226,6 +226,26 @@ var nowWithCreamAndSugar = nowWithSugar.AddCream(1);
 							</code>
 						</pre>
 					</section>
+					<section>
+						<pre id="fragments" class="fragment">Execution of commands
+							<code class="hljs hljs csharp hljs hljs">
+class CupOfCoffee {
+  int cream;
+  int sugar
+};
+var yay = new CupOfCoffee();
+yay.cream++;
+yay.sugar++;
+							</code>
+						</pre>
+						<pre id="fragments" class="fragment">Evaluation of expressions
+							<code class="hljs hljs csharp hljs hljs">
+var yay = new CupOfCoffee();
+var nowWithSugar = yay.AddSugar(1);
+var nowWithCreamAndSugar = nowWithSugar.AddCream(1);
+							</code>
+						</pre>
+					</section>
 				</section>
 
 				<section>
@@ -374,7 +394,7 @@ customers |> List.filter over65
 						</pre>
 					</section>
 					<section>
-						<pre>Imperative
+						<pre>Imperative - execution of commands
 							<code class="hljs hljs csharp hljs hljs">
 for (var i = 0; i < customers.Count(); i++)
 {
@@ -386,7 +406,7 @@ for (var i = 0; i < customers.Count(); i++)
 return tempList;
 							</code>
 						</pre>
-						<pre>Declarative
+						<pre>Declarative - evaluation of expressions
 							<code class="hljs hljs cs hljs hljs">
 customers |> List.filter (fun (c) -> c.age > 65)
 							</code>
@@ -445,6 +465,47 @@ int SumNumbers(int from, int to)
       ? 0
       : { var sumRest = SumNumbers(from + 1, to);
           from + sumRest; };
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Memory issues</h3>
+						<pre>
+							<code class="hljs hljs javascript hljs hljs" style="font-size: large">
+$scope.createEmployee = function() {
+  $scope.loading++;
+
+  var newEmployee = {
+    Person_Sk: $scope.employee.Person_Sk,
+    UserName: $scope.employee.UserName,
+    FirstName: $scope.employee.FirstName,
+    MiddleName: $scope.employee.MiddleName,
+    LastName: $scope.employee.LastName,
+    IsAdmin: $scope.employee.IsAdmin,
+    IsActive: $scope.employee.IsActive,
+    HireDate: moment($scope.employee.HireDate).format("YYYY-MM-DD"),
+    EmployeeTypeLookup_Sk: $scope.employeeType.LookupElement_Sk,
+    YearsProfessionalPrior: $scope.employee.YearsProfessionalPrior
+  };
+
+  employeeRepository.Post(newEmployee)
+    .done(function() {
+      $scope.loading--;
+      $scope.goToEmployees();
+  });
+};
+ 							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Tail recursion</h3>
+						<pre>
+							<code class="hljs hljs cs hljs hljs">
+int Factorial(int n, int total = 1)
+{
+  if (n == 0) return total;
+  return factorial(n - 1, n * total);
 }
 							</code>
 						</pre>

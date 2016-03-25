@@ -180,6 +180,11 @@ Im/Mutability
 				return from + sumRest;
 			}
 			This is valid because, while the value of sumRest is different depending on the activation frame, within the scope of the function and it's given parameters, the value is not being mutated.
+	- Memory issues
+		- The only good answer I found is that it is "sometimes" more inefficient. Comparing OOP and Functional isn't appropriate. They're different. Yes, if you were to program functional the same way you program OOP then it would likely be inefficiencies; however, the point is that it isn't programmed the same way. While immutability introduces potential memory problems, it also gets rid of some. Because of immutability, the langauge can more easily share data between functions and data structures because the language guarantees that the objects wont change one bound.
+		- Functional also encourages using immutable data structures. Like a tree as opposed to a hash table.
+		- Functional is also extremely lazy. Virtually everything is lazy loaded. Evaluation happens on access.
+			- Leads into things like infinite and lazy lists, but that's really getting into the details
 
 Questions?
 
